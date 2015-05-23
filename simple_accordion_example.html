@@ -1,40 +1,40 @@
 <html>
 <head>
-<style type="text/css">
-	.content{
-		display: none;
-	}
-	.content-visible{
-		display: block;
-		border: solid 2px;
-	}
-	.topic{
-		height: 5%;
-		width: 100%;
-		background-color: rgba(192, 37, 23, 0.67);
-		cursor: pointer; 
-		text-align: center;
-	}
-</style>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <style type="text/css">
+    .content{
+      display: none;
+    }
+    .content-visible{
+      display: block;
+      border: solid 2px;
+    }
+    .topic{
+      height: 5%;
+      width: 100%;
+      background-color: rgba(192, 37, 23, 0.67);
+      cursor: pointer;
+      text-align: center;
+    }
+  </style>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script type = "text/javascript">
-  $(document).ready(function(){
-  	$(".topic").attr("title", "Click to expand/close this topic!");
-	  hideVisibleContent = function(){
-	    $(".content-visible").slideUp();
-	    $(".content-visible").removeClass("content-visible");
-	  }
-    $(".topic").click(function(){
+    $(document).ready(function(){
+      $(".topic").attr("title", "Click to expand/close this topic!");
+	hideVisibleContent = function(){
+	  $(".content-visible").slideUp();
+	  $(".content-visible").removeClass("content-visible");
+	}
+      $(".topic").click(function(){
     	var nextContent = $(this).next(".content");
     	if(nextContent.hasClass("content-visible")){
-    		hideVisibleContent();
-      } else {
-		  	hideVisibleContent();
-		    nextContent.slideDown();
-		    nextContent.addClass("content-visible");
-		  }
+    	  hideVisibleContent();
+        } else {
+          hideVisibleContent();
+	  nextContent.slideDown();
+          nextContent.addClass("content-visible");
+        }
+      });
     });
-  });
   </script>
 </head>
 <body>
