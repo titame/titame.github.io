@@ -1,0 +1,64 @@
+<html>
+<head>
+	<style type="text/css">
+		.content{
+			display: none;
+		}
+		.content-visible{
+			display: block;
+			border: solid 2px;
+		}
+		.topic{
+			height: 5%;
+			width: 100%;
+			background-color: rgba(192, 37, 23, 0.67);
+			cursor: pointer; 
+			text-align: center;
+		}
+	</style>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script type = "text/javascript">
+  $(document).ready(function(){
+  	$(".topic").attr("title", "Click to expand/close this topic!");
+	  hideVisibleContent = function(){
+	    $(".content-visible").slideUp();
+	    $(".content-visible").removeClass("content-visible");
+	  }
+    $(".topic").click(function(){
+    	var nextContent = $(this).next(".content");
+    	if(nextContent.hasClass("content-visible")){
+    		hideVisibleContent();
+      } else {
+		  	hideVisibleContent();
+		    nextContent.slideDown();
+		    nextContent.addClass("content-visible");
+		  }
+    });
+  });
+  </script>
+</head>
+<body>
+	<div title="Click to see content!" class = "topic">
+		<h3>Aeronautics</h3><i class="fa fa-arrow-up"></i>
+	</div>
+	<div class = "content content-visible">
+		<p>
+			Aeronautics is the science or art involved with the study, design, and manufacturing of airflight-capable machines, and the techniques of operating aircraft and rockets within the atmosphere. The British Royal Aeronautical Society identifies the aspects of "aeronautical Art, Science and Engineering" and "the profession of Aeronautics (which expression includes Astronautics)."
+		</p>
+	</div>
+	<div class = "topic">
+		<h3>Health Care</h3><i class="fa fa-arrow-down"></i>
+	</div>
+	<div class = "content">
+		<p>
+			Health care (or healthcare) is the diagnosis, treatment, and prevention of disease, illness, injury, and other physical and mental impairments in human beings. Health care is delivered by practitioners in allied health, dentistry, midwifery (obstetrics), medicine, nursing, optometry, pharmacy, psychology and other health professions. It refers to the work done in providing primary care, secondary care, and tertiary care, as well as in public health.
+		</p>
+	</div>
+	<div class = "topic">
+		<h3>Intelligence Bureau</h3><i class="fa fa-arrow-down"></i>
+	</div>
+	<div class = "content">
+		Understanding of the shadowy workings of the IB is largely speculative. Many a times even their own family members are unaware of their whereabouts. One known task of the IB is to clear licences to amateur radio enthusiasts. The IB also passes on intelligence between other Indian intelligence agencies and the police. The Bureau also grants the necessary security clearances to Indian diplomats and judges before they take the oath. On rare occasions, IB officers interact with the media during a crisis situation. The IB is also rumoured to intercept and open around 6,000 letters daily. It also has an email spying system similar to FBI's Carnivore system. The Bureau is also authorised to conduct wiretapping without a warrant
+	</div>
+</body>
+</html>
