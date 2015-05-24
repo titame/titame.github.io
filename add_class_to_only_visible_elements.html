@@ -1,0 +1,38 @@
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.hidden{
+			display: none;
+		}
+		p, div, span{
+			height: 10%;
+			width: 100%;
+		}
+		.custom{
+			background-color: #9E610F;
+		  color: #fff;
+		  border: solid 2px gold;
+		}
+	</style>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script type = "text/javascript">
+    $(document).ready(function(){
+    	$("#change-color").on("click", function(){
+    		$("body :visible").addClass("custom");
+    	});
+    });
+  </script>
+</head>
+<body>
+	<div class="hidden">div which is hidden</div>
+	<div>div which is visible</div>
+	<p class="hidden">paragraph which is hiddden</p>
+	<p>paragraph which is visible</p>
+	<span>span which is visible</span>
+	<span class="hidden">span which is hidden</span>
+	<br/>
+	<br/>
+	<input type="button" id="change-color" value="Change Color"/> 
+</body>
+</html>
