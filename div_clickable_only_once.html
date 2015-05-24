@@ -1,0 +1,32 @@
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		div{
+			height: 20%;
+			border: solid 2px gold;
+			background-color: #9E610F;
+		  color: #fff;
+		}
+	</style>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#one-time-clickable").bind("click", function(){
+				alert("You clicked div once!...You can't click it any more!");
+				$("#one-time-clickable").unbind();
+			});
+			$("#single-click").on("click", function(){
+			  alert("You clicked div once!...You can't click it any more!");
+			  $("#single-click").off();
+		  });
+		});
+	</script>
+</head>
+<body>
+<div id="one-time-clickable">I am clickable only once!</div>
+<br/>
+<br/>
+<div id="single-click">I am clickable only once!</div>
+</body>
+</html>
