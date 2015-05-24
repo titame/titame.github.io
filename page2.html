@@ -1,0 +1,25 @@
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+
+	</style>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$("#page2-link").click(function(){
+			$(window).bind("beforeunload", function(){
+			  return "You are being redirected to page2!";
+		  });
+		});
+		$(window).on("beforeunload", function(){
+			$(window).unbind();
+		});
+	});
+  </script>
+</head>
+<body>
+<div id="msg">Welcome to page1!</div><br/><br/>
+<a id = "page2-link" href="page2.html">Go to page2</a>
+</body>
+</html>
