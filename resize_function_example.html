@@ -1,0 +1,25 @@
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#message{
+			border: solid 2px gold;
+			height: 15%;
+			width: 50%;
+			margin-left: 25%;
+			text-align: center;
+		}
+	</style>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(window).resize(function(){
+				$("#message").text("Window resized to: " + $(this).height() + "x" + $(this).width());
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="message">Resize your browser and get its latest window size here!</div>
+</body>
+</html>
