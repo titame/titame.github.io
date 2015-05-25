@@ -18,17 +18,20 @@
     }
     addRecord = function(){
       var name = $("#user-name").val();
-      record = '<tr><td>' + name + '</td><td><a href="#" id="edit">Edit</td></tr>'
+      record = '<tr><td>' + name + '</td><td><a href="#" id="edit">Edit</td><td><a href="#" id="delete">Delete</td></tr>'
       $("#data-list").append(record);
       $("#user-name").val("");
       return false;
     }
     $("#user-form").bind("submit", addRecord);
-    $("#data-list").on("click", "td #edit", function(){
+    $("#data-list").on("click", "#edit", function(){
       $("#user-form").unbind();
       $("#user-form").bind("submit", updateRecord)
       editRecord = $(this).parents("tr").children("td:first");
       $("#user-name").val(editRecord.text());
+    });
+    $("#data-list").on("click", "#delete", function(){
+      $(this).parents("tr").remove();
     });
   });
   </script>
@@ -43,7 +46,7 @@
   <br/>
   <table id="data-list">
     <th>Name</th>
-    <th>action</th>
+    <th colspan="2">Actions</th>
   </table>
 </body>
 </html>
