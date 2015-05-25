@@ -6,36 +6,44 @@
        padding: 2px 2px 2px 2px;
     }
   </style>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script type = "text/javascript">
+  var editRecord;
   $(document).ready(function(){
-  	addRecord = function(){
-  		var name = $("#user-name").val();
-  		record = '<tr><td>' + name + '</td><td><a href="#" id="edit">Edit</td></tr>'
-  		$("#data-list").append(record);
+    updateRecord = function(){
+      editRecord.text($("#user-name").val());
+      $("#user-form").unbind();
+      $("#user-form").bind("submit", addRecord);
+      return false;
+    }
+    addRecord = function(){
+      var name = $("#user-name").val();
+      record = '<tr><td>' + name + '</td><td><a href="#" id="edit">Edit</td></tr>'
+      $("#data-list").append(record);
       $("#user-name").val("");
-  		return false;
-  	}
-  	$("#data-list").on("click", "td #edit", function(){
-  		var record = $(this).parents("tr");
-  		$("#user-name").val(record.children("td:first").text());
-  		record.remove();
-  	});
+      return false;
+    }
     $("#user-form").bind("submit", addRecord);
+    $("#data-list").on("click", "td #edit", function(){
+      $("#user-form").unbind();
+      $("#user-form").bind("submit", updateRecord)
+      editRecord = $(this).parents("tr").children("td:first");
+      $("#user-name").val(editRecord.text());
+    });
   });
   </script>
 </head>
 <body>
-	<form id="user-form">
-		Name: &nbsp; <input type="text" id = "user-name" name="name" placeholder="Enter your name here"/>
-		<br/>
-		<br/>
-	  <input type="submit" name="submit" value="submit"/>
-	</form>
+  <form id="user-form">
+    Name: &nbsp; <input type="text" id = "user-name" name="name" placeholder="Enter your name here"/>
+    <br/>
+    <br/>
+    <input type="submit" name="submit" value="submit"/>
+  </form>
   <br/>
   <table id="data-list">
-  	<th>Name</th>
-  	<th>action</th>
+    <th>Name</th>
+    <th>action</th>
   </table>
 </body>
 </html>
